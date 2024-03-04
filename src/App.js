@@ -1,5 +1,5 @@
 import "./App.css";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import DurationExercise from "./components/DurationExercise";
 import RepetitionExercise from "./components/RepetitionExercise";
 import RunningExercise from "./components/RunningExercise";
@@ -18,6 +18,9 @@ let exerciseList = [
 ];
 
 function App() {
+  useEffect(() => {
+    setCurrentScreen(MENU_SCREEN);
+  }, []);
   let [currentScreen, setCurrentScreen] = useState(EXERCISE_SCREEN);
   let [currentExercise, setCurrentExercise] = useState(exerciseList[3]);
   let screenComponent = undefined;
